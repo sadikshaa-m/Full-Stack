@@ -5,7 +5,7 @@ export const base = 'https://full-stack-2-7o27.onrender.com'
 
 export const mainApi = createApi({
     reducerPath: 'mainApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'https://full-stack-2-7o27.onrender.com//api'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://full-stack-2-7o27.onrender.com/api'}),
     endpoints: (builder) => ({})
 
 });
