@@ -213,7 +213,7 @@ const app = express();
 const port = 5000;
 
 app.use(cors({
-  origin: ['https://full-stack-dr7e-q0qv9pfkm-sadikshas-projects.vercel.app', 'http://localhost:5173']
+  origin: ['https://full-stack-dr7e.vercel.app', 'http://localhost:5173']
 }));
 app.use(express.json());
 app.use('/uploads',express.static('uploads'));
