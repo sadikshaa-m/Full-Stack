@@ -1,5 +1,20 @@
 {
+  "name": "types",
+  "version": "1.0.0",
+  "description": "TypeScript project",
+  "main": "index.js",
+  "scripts": {
+  "dev": "ts-node index.ts",
+  "build": "tsc",
+  "start": "node dist/index.js"
+}
+
+,
   "devDependencies": {
+    "@types/node": "^25.0.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
-  }
+  },
+  "author": "Sadiksha",
+  "license": "ISC"
 }
