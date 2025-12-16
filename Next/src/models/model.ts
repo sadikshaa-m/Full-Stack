@@ -5,3 +5,11 @@ export interface employeeInterface{
     age: number;
 
 }
+
+export interface Comment {
+    postId: number;
+    name: string;
+    email: string;
+    body: string;
+}
+
