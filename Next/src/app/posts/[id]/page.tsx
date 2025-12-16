@@ -9,7 +9,7 @@ export default async function PostPage({ params }: { params: Promise<PostPagePro
 
   return (
     <div>
-
+        
     </div>
   );
 }

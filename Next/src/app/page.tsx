@@ -12,7 +12,9 @@ export default function Home() {
   
   return (
     <div className="p-2">
-      <Button>Click Here</Button>
+     
+
+     
     </div>
   )
 }

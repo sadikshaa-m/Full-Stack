@@ -8,6 +8,7 @@ export default function Header() {
 
       <nav className='space-x-5 '>
         
+      <Link href={'/employees/add'} className='hover:text-pink-200'>Add Employee</Link>
       <Link href={'/posts'} className='hover:text-pink-200'>Posts</Link>
       <Link href={'/about'} className='hover:text-pink-200'>About</Link>
       <Link href={'/contact'} className='hover:text-pink-200'>Contact</Link>
