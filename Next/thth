@@ -1,0 +1,7 @@
+server component and client component
+server component ma hooks use garna mildaina
+client component ma top of the page ma 'use client bhanera rakhna parcha
+
+
+
+routing ko laagi page.tsx nei banauna parcha ----- grouping (route grouping) garna folder bhitra folder halna parcha-- esari direct tyo folder haru ma jana milclha-- for eg: auth ko case ma bracket cha hamro url ma auth/login garna pardaina simply /login gare pugcha...
