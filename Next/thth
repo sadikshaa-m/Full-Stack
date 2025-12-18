@@ -1,7 +1,15 @@
 server component and client component
-server component ma hooks use garna mildaina
+server component ma hooks use garna mildaina tara use garna paryo bhane page ko top ma 'use client' bhanna parch -- tesari client component huncha
 client component ma top of the page ma 'use client bhanera rakhna parcha
 
 
 
+not found ko coustom page banauna ko lagi not-found bhanni page nei banauna parcha
+
+
+
 routing ko laagi page.tsx nei banauna parcha ----- grouping (route grouping) garna folder bhitra folder halna parcha-- esari direct tyo folder haru ma jana milclha-- for eg: auth ko case ma bracket cha hamro url ma auth/login garna pardaina simply /login gare pugcha...(auth is not part of the route)
+
+
+API hit garna k garne ta??
+--> Axios library install garni
