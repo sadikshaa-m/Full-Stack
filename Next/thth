@@ -13,3 +13,6 @@ routing ko laagi page.tsx nei banauna parcha ----- grouping (route grouping) gar
 
 API hit garna k garne ta??
 --> Axios library install garni
+
+
+server actions => 'use server'

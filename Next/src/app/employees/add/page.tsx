@@ -40,7 +40,7 @@ export default function EmployeeAdd() {
           onSubmit={(val) => {
             startTransition(async() => {
 try{
-                const response = await addEmployee();
+                const response = await addEmployee(val);
                 console.log(response);
             } catch(err) {
                 console.log(err);
