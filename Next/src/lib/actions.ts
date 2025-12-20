@@ -38,6 +38,7 @@ export async function updateEmployee(employee: Employee , id:string) {
     try{
         await axios.patch(`https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees/${id}`, employee);
         revalidatePath('/');
+        return {success: true, message: 'Employee updated successfully'}
     } catch (err : any) {
         return {success: false, message: err.message}
     }

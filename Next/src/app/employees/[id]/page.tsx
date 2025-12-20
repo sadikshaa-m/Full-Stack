@@ -1,9 +1,18 @@
-import React from 'react'
+import { Button } from "@/components/ui/button";
+import axios from "axios";
+import { Edit2Icon } from "lucide-react";
 
-export default function page() {
+
+interface UpdateEmployeeProps {
+  id: string;
+}
+
+export default async function UpdateEmployee({params}: {params: Promise<UpdateEmployeeProps> }) {
+  const {id} = await params;
+  const res = await axios.get(`https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees/${id}`)
   return (
-    <div>
-      
-    </div>
+   <div>
+
+   </div>
   )
 }
