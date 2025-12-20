@@ -37,7 +37,7 @@ export default async function Home() {
       <h1 className="text-2xl font-bold text-center my-3 tracking-wider">Employees</h1>
        
       <ul>
-    {employees.map((employee)=> (
+    {employees.map((employee : Employee)=> (
       <li key={employee.id} className="border p-4">
         <h2><b>Name:</b> {employee.name}</h2>
         <h2><b>Position:</b> {employee.position}</h2>

@@ -14,7 +14,8 @@ export async function addEmployee(employee: Employee) {
         revalidatePath('/');
         return {status: true , message: 'Employee added successfully'}
     } catch(err: any) {
-        return {status: false, message: err.message}
+        console.log(err);
+        throw new Error ('Failed to add employee');
     }
 
 

@@ -19,3 +19,7 @@ server actions => 'use server'
 
 
 loading ko lagi usetransition hook use garni
+
+
+
+react ma arko page ma jana navigate gareko jasto next ma chai useRouter huncha..

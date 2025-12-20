@@ -13,6 +13,8 @@ import { Spinner } from "@/components/ui/spinner";
 import { addEmployee } from "@/lib/actions";
 import { Employee } from "@/models/model";
 import { Formik } from "formik";
+import { useRouter } from "next/navigation";
+
 import { useTransition } from "react";
 import toast from "react-hot-toast";
 
@@ -20,6 +22,7 @@ import toast from "react-hot-toast";
 export default function EmployeeAdd() {
 
   const [isLoading, startTransition] = useTransition();
+  const router = useRouter();
 
 
   return (
@@ -38,20 +41,20 @@ export default function EmployeeAdd() {
             name: '',
             position: '',
             age: 0,
-           
-          
           }}
+          
           onSubmit={async (val: Employee) => {
             startTransition(async () => {
               try {
                 const response = await addEmployee(val);
                 console.log(response);
                 toast.success(response.message);
+                router.back();
               }catch (err: any) {
   toast.error(err?.response?.data?.message || "Failed to add employee");
 }
 
-            })
+            });
 
 
           }}
@@ -70,6 +73,7 @@ export default function EmployeeAdd() {
                     name="name"
                     placeholder="John Doe"
                   />
+                  
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="position">Position</Label>
