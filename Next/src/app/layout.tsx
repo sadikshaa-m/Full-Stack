@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import Header from "@/components/Header";
+import { Toaster } from "react-hot-toast";
 
 
 
@@ -21,7 +22,11 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header/>
+        <main className="p-5">
+
         {children}
+        </main>
+        <Toaster toastOptions={{duration: 700}}/>
       </body>
     </html>
   );

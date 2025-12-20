@@ -4,16 +4,53 @@
 
 import { Employee } from "@/models/model";
 import axios from "axios";
+import { revalidatePath } from "next/cache";
 
 
 
 export async function addEmployee(employee: Employee) {
     try{
-        await axios.post('https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees', employee );
-        return {status: 'success' , message: 'Employee added successfully'}
-    } catch(err) {
-        return {status: false, message: 'Failed to add employee'}
+        await axios.post('https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees', employee);
+        revalidatePath('/');
+        return {status: true , message: 'Employee added successfully'}
+    } catch(err: any) {
+        return {status: false, message: err.message}
     }
 
 
+}
+
+
+
+export async function getEmployees(): Promise<Employee[]> {
+    try{
+        const response = await axios.get('https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees');
+       
+        return response.data;
+    } catch (err) {
+        return [];
+    }
+}
+
+
+export async function updateEmployee(employee: Employee , id:string) {
+    try{
+        await axios.patch(`https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees/${id}`, employee);
+        revalidatePath('/');
+    } catch (err : any) {
+        return {success: false, message: err.message}
+    }
+}
+
+
+
+export async function removeEmployee(id: string) {
+    try{
+        await axios.delete(`https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees/${id}`);
+        revalidatePath('/');
+        return {success:true , message: 'Employee removed successfully'}
+
+    } catch(err : any) {
+        return {success:false , message: err.message}
+    }
 }

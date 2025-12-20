@@ -11,13 +11,15 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Spinner } from "@/components/ui/spinner";
 import { addEmployee } from "@/lib/actions";
+import { Employee } from "@/models/model";
 import { Formik } from "formik";
 import { useTransition } from "react";
+import toast from "react-hot-toast";
 
 
 export default function EmployeeAdd() {
 
-    const [isLoading, startTransition] = useTransition();
+  const [isLoading, startTransition] = useTransition();
 
 
   return (
@@ -35,18 +37,22 @@ export default function EmployeeAdd() {
           initialValues={{
             name: '',
             position: '',
-            age: 0
+            age: 0,
+           
+          
           }}
-          onSubmit={(val) => {
-            startTransition(async() => {
-try{
+          onSubmit={async (val: Employee) => {
+            startTransition(async () => {
+              try {
                 const response = await addEmployee(val);
                 console.log(response);
-            } catch(err) {
-                console.log(err);
-            }
+                toast.success(response.message);
+              }catch (err: any) {
+  toast.error(err?.response?.data?.message || "Failed to add employee");
+}
+
             })
-            
+
 
           }}
         >
@@ -60,6 +66,7 @@ try{
                   <Input
                     id="name"
                     value={values.name}
+                    onChange={handleChange}
                     name="name"
                     placeholder="John Doe"
                   />
@@ -68,6 +75,7 @@ try{
                   <Label htmlFor="position">Position</Label>
                   <Input
                     id="position"
+                    onChange={handleChange}
                     value={values.position}
                     name="position"
                     placeholder="Dev"
@@ -78,6 +86,7 @@ try{
                   <Input
                     id="age"
                     name="age"
+                    onChange={handleChange}
                     type="number"
                     placeholder="90"
                   />
@@ -87,7 +96,7 @@ try{
 
 
 
-  {isLoading ? <Button disabled className="w-full">
+                {isLoading ? <Button disabled className="w-full">
                   <Spinner /> Submit
                 </Button> : <Button type="submit" className="w-full">
                   Submit

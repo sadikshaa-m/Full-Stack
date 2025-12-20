@@ -1,5 +1,8 @@
 // // home page
 
+import { getEmployees } from "@/lib/actions"
+import { Employee } from "@/models/model";
+
 // import { Comment } from "@/models/model"
 // import axios from "axios"
 // import { Metadata } from "next"
@@ -26,11 +29,28 @@
 
 
 
-export default function Home() {
-
+export default async function Home() {
+  const employees: Employee[] = await getEmployees();
 
   return (
-    <div>
+    <div >
+      <h1 className="text-2xl font-bold text-center my-3 tracking-wider">Employees</h1>
+       
+      <ul>
+    {employees.map((employee)=> (
+      <li key={employee.id} className="border p-4">
+        <h2><b>Name:</b> {employee.name}</h2>
+        <h2><b>Position:</b> {employee.position}</h2>
+        <h3><b>Age:</b> {employee.age}</h3>
+      </li>
+    ))}
+
+      </ul>
+
+      <h1 className="text-md font-light justify-self-end my-2">Total employees: {employees.length}</h1>
+
+
+      
       
 
 
