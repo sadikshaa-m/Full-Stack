@@ -1,11 +1,11 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 
-export const base = 'https://full-stack-2-7o27.onrender.com'
+export const base = 'http://localhost:5000'
 
 export const mainApi = createApi({
     reducerPath: 'mainApi',
-    baseQuery: fetchBaseQuery({baseUrl: 'https://full-stack-2-7o27.onrender.com/api'}),
+    baseQuery: fetchBaseQuery({baseUrl: 'http://localhost:5000/api'}),
     endpoints: (builder) => ({})
 
 });

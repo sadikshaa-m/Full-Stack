@@ -22,7 +22,7 @@ export default function CheckOutPart({carts}) {
                 token: user.token,
                 body: {
                     products: carts.map((item)=> ({
-                        productId: item.id,
+                        product: item.id,
                         quantity: item.quantity,
                     })),
                     totalAmount
