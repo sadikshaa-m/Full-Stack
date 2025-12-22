@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { getEmployees } from "@/lib/actions"
 import { Employee } from "@/models/model";
 import { Edit2Icon, Trash2Icon } from "lucide-react";
-import UpdateEmployee from "./employees/[id]/page";
+import Link from "next/link";
 
 // import { Comment } from "@/models/model"
 // import axios from "axios"
@@ -43,16 +43,17 @@ export default async function Home() {
       <div>
     {employees.map((employee : Employee)=> (
       <div key={employee.id} className="border p-4 mb-2">
+        
         <h2><b>Name:</b> {employee.name}</h2>
         <h2><b>Position:</b> {employee.position}</h2>
         <h3><b>Age:</b> {employee.age}</h3>
 
         <div className="flex mt-2">
-          <link href={`/employees/${employee.id}`}>
+          <Link href={`/employees/${employee.id}`}>
            <Button variant={'ghost'} className="hover:bg-zinc-400">
                 <Edit2Icon/>
                 </Button>
-          </link>
+          </Link>
         <DeleteEmployee id={employee.id ?? ''}/>
           </div>
       </div>

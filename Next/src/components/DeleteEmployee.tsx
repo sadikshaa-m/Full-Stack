@@ -11,13 +11,14 @@ export default function DeleteEmployee({id} : {id: string}) {
     const [isLoading, startTransition] = useTransition();
     const handleRemove = ()=> {
         startTransition(async () => {
-            try{
-                await  removeEmployee(id);
-                toast.success('Employee removed successfully');
-               
-            } catch (err) {
-                toast.error('Something went wrong');
-            }
+            
+               const res = await  removeEmployee(id);
+               if(res.success) {
+                toast.success(res.message);
+               } else {
+                toast.error(res.message);
+               }
+
         })
     }
   return (
