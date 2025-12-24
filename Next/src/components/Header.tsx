@@ -1,5 +1,8 @@
+'use client';
+
+import { ClerkProvider, SignedIn, SignedOut, SignIn, SignInButton, SignUpButton, UserButton } from '@clerk/clerk-react'
+import { SignOutButton } from '@clerk/nextjs'
 import Link from 'next/link'
-import React from 'react'
 
 export default function Header() {
   return (
@@ -12,6 +15,20 @@ export default function Header() {
       <Link href={'/posts'} className='hover:text-pink-200'>Posts</Link>
       <Link href={'/about'} className='hover:text-pink-200'>About</Link>
       <Link href={'/contact'} className='hover:text-pink-200'>Contact</Link>
+    
+
+
+      
+      
+        <SignedOut>
+          <SignInButton>Sign In</SignInButton>
+          <SignUpButton>Sign Up</SignUpButton>
+        </SignedOut>
+
+        <SignedIn>
+          <UserButton/>
+        </SignedIn>
+     
       </nav>
       
     </div>
