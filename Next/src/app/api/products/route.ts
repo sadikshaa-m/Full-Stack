@@ -2,6 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 
 export async function GET(req: NextRequest) {
+    const {searchParams} = new URL(req.url);
+    const productName = searchParams.get("productName");
+    if (!productName){
+        return NextResponse.json(
+            {error: 'No products added'},
+            {status:400}
+        );
+    }
     return NextResponse.json ({productName: 'tennis-ball', price: 200, inStock: true}, {status: 200});
 }
 
