@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
 
    if(!number) {
     return NextResponse.json(
-        {result: 'add number'},
+        {error: 'add number'},
         {status: 200}
     );
    }
