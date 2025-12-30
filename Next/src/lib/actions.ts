@@ -5,8 +5,8 @@
 import { Employee } from "@/models/model";
 import axios from "axios";
 import { revalidatePath } from "next/cache";
-
-
+import { connectDb } from "@/lib/db";
+import { News } from "@/models/News";
 
 export async function addEmployee(employee: Employee) {
     try{
@@ -55,4 +55,29 @@ export async function removeEmployee(id: string) {
     } catch(err : any) {
         return {success:false , message: err.message}
     }
+}
+
+
+
+
+
+export async function addNews() {
+  await connectDb();
+  try {
+    await News.create({
+      title: 'title',
+      description: 'description',
+      image: 'image'
+    });
+
+    return {
+      success: true,
+      message: 'News added successfully'
+    }
+  } catch (err) {
+    return {
+      success: false,
+      message: 'Failed to add news'
+    }
+  }
 }
