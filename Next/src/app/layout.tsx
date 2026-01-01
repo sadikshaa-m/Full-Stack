@@ -21,23 +21,19 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body>
+      <html lang="en">
+        <body>
+          <Header />
+          <main className="p-5">
+
+            {children}
+          </main>
 
 
-        <Header/>
-       
+          <Toaster toastOptions={{ duration: 1000 }} />
 
-        <main className="p-5">
-
-        {children}
-        </main>
-      
-        
-        <Toaster toastOptions={{duration: 1000}}/>
-        
-      </body>
-    </html>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }

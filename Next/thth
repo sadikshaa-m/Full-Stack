@@ -4,7 +4,7 @@ client component ma top of the page ma 'use client bhanera rakhna parcha
 
 
 
-not found ko coustom page banauna ko lagi not-found bhanni page nei banauna parcha
+not found ko custom page banauna ko lagi not-found bhanni page nei banauna parcha
 
 
 
@@ -23,3 +23,7 @@ loading ko lagi usetransition hook use garni
 
 
 react ma arko page ma jana navigate gareko jasto next ma chai useRouter huncha..
+
+
+1. db.ts --- database connectgarni
+2. api folder ma kun ko chaiyeko tesko route banauni -- route.ts
