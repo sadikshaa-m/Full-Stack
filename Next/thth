@@ -1,3 +1,15 @@
+//function signature--> includes function name, parameters, return type(defines how a function is called)
+
+//hook --> special kind of react function which lets you hook into react features
+
+//function call / function invocation -> it simply means calling the function/ hook
+ useActionState(action, intialstate); => this is a function invocation while passing arguments
+
+
+const [error, actionState, isPending] = useActionState(action, null);
+This is a hook invocation with array destructuring assignment   -> In useActionState(action, null), action is the function the hook will execute, and null is the initial state for the action before it runs. The hook then returns [error, actionState, isPending], which we destructure into constants.
+
+
 server component and client component
 server component ma hooks use garna mildaina tara use garna paryo bhane page ko top ma 'use client' bhanna parch -- tesari client component huncha
 client component ma top of the page ma 'use client bhanera rakhna parcha
@@ -27,3 +39,13 @@ react ma arko page ma jana navigate gareko jasto next ma chai useRouter huncha..
 
 1. db.ts --- database connectgarni
 2. api folder ma kun ko chaiyeko tesko route banauni -- route.ts
+
+
+
+usetransition hook
+
+useactionstate hook => form handle garna lai use garnii 
+
+
+
+firstly form ko layout banauni 

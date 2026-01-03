@@ -1,6 +1,5 @@
 // // // home page
 
-import NewsForm from "@/components/NewsForm";
 import { getNews } from "@/lib/actions"
 import { NewsModel } from "@/models/model";
 
@@ -97,7 +96,7 @@ export default async function Home() {
           )
         })
       }
-      {/* <NewsForm/> */}
+      
     </div>
   )
 }

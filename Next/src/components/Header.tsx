@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <div className='flex justify-between items-center   bg-zinc-400 text-white p-2 mb-3'>
+    <div className='flex justify-between items-center bg-zinc-400 text-white p-2 mb-3'>
       <h1 className='text-2xl font-bold'>Logo</h1>
 
       <nav className='space-x-5 '>
@@ -21,10 +21,12 @@ export default function Header() {
           <SignInButton>Sign In</SignInButton>
           <SignUpButton>Sign Up</SignUpButton>
         </SignedOut>
+       
 
         <SignedIn>
+          <Link href={'/news/add'}>Add news</Link>
           <UserButton/>
-        </SignedIn>
+       </SignedIn>
      
       </nav>
       
