@@ -6,7 +6,7 @@
 import { News } from "@/models/News";
 import { connectDb } from "./db";
 import { NewsModel } from "@/models/model";
-import { success } from "zod";
+import { revalidatePath } from "next/cache";
 
 // import { Employee } from "@/models/model";
 // import axios from "axios";
@@ -112,6 +112,7 @@ export async function addNews(news: NewsModel) {
   await connectDb();
   try{
     await News.create(news);
+    revalidatePath('/');
     return {
       success: true,
       message: 'News successfully added'
@@ -129,6 +130,7 @@ export async function removeNews(id: string) {
   await connectDb();
   try{
     await News.findByIdAndDelete(id);
+    revalidatePath('/');
     return{
 
       success: true,

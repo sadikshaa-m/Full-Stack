@@ -25,7 +25,7 @@ export default function DeleteNews({id} : {id : string}) {
     <div>
       {isLoading ? <Button disabled variant={'ghost'}><Spinner/></Button>
        :
-      <Button onClick={handleRemove} variant={'ghost'}><Trash2Icon/></Button> } 
+      <Button onClick={handleRemove} variant={'ghost'} className="text-red-600"><Trash2Icon/></Button> } 
     </div>
   )
 }

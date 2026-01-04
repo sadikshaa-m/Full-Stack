@@ -56,4 +56,4 @@ then destructure the form data ani submit garni
 so to delete what we did:-
 1) action .ts ma delete operation banaune (action.ts ma crud operations banauni ho)
 2) connect garnu parcha aba removeNews chutai euta component banauni deletenews ko ani tya connect removeNews
-3) 
+3) home page ma connect garni

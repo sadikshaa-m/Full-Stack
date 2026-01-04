@@ -1,5 +1,6 @@
 // // // home page
 
+import DeleteNews from "@/components/DeleteNews";
 import { getNews } from "@/lib/actions"
 import { NewsModel } from "@/models/model";
 
@@ -85,13 +86,17 @@ export default async function Home() {
   
   const news: NewsModel[] = res.data ?? []
   return (
-    <div>
+    <div className="border p-2">
       {
         news.map((news: any) => {
           return(
-            <div key={news.id}>
+            <div key={news.id} >
               <h2>{news.title}</h2>
               <p>{news.description}</p>
+              <div className="justify-end flex">
+
+              <DeleteNews id={news.id}/>
+              </div>
             </div>
           )
         })
