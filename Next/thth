@@ -48,4 +48,12 @@ useactionstate hook => form handle garna lai use garnii
 
 
 
-firstly form ko layout banauni 
+firstly form ko layout banauni ,
+then destructure the form data ani submit garni
+
+
+
+so to delete what we did:-
+1) action .ts ma delete operation banaune (action.ts ma crud operations banauni ho)
+2) connect garnu parcha aba removeNews chutai euta component banauni deletenews ko ani tya connect removeNews
+3) 

@@ -3,8 +3,10 @@
 
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Spinner } from '@/components/ui/spinner'
 import { addNews } from '@/lib/actions'
 import { useActionState } from 'react'
+import toast from 'react-hot-toast'
 
 
 const action = async (prevState: any, formData: FormData) => {
@@ -13,12 +15,16 @@ const action = async (prevState: any, formData: FormData) => {
     description: formData.get('description') as string,
     image: formData.get('image') as string
   });
-  return res;
+  
+  if(!res.success) {
+    toast.error(res.message);  //yo response chai action.ts ma banako cha addNews ma
+  } else {
+    toast.success(res.message);
+  }
 }
 
 
 export default function AddNews() {
-
   const [error, submitAction, isPending] = useActionState(action, null);
 
 
@@ -41,8 +47,11 @@ export default function AddNews() {
         className='w-full '
       />
 
-      <Button type='submit' className='w-full mt-2'>Submit</Button>
+      <Button type='submit' className='w-full mt-2'>
+        {isPending && <Spinner/>}
+        Submit
+        </Button>
 
-    </form>
+    </form> 
   )
 }

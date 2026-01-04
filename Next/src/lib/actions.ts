@@ -6,6 +6,7 @@
 import { News } from "@/models/News";
 import { connectDb } from "./db";
 import { NewsModel } from "@/models/model";
+import { success } from "zod";
 
 // import { Employee } from "@/models/model";
 // import axios from "axios";
@@ -105,6 +106,8 @@ export async function getNews() {
   
 }
 
+
+
 export async function addNews(news: NewsModel) {
   await connectDb();
   try{
@@ -113,10 +116,29 @@ export async function addNews(news: NewsModel) {
       success: true,
       message: 'News successfully added'
     }
-  } catch (err){
+  } catch (err: any){
     return {
       success: false,
-      message: 'failed to add news'
+      message: err.message
+    }
+  }
+}
+
+
+export async function removeNews(id: string) {
+  await connectDb();
+  try{
+    await News.findByIdAndDelete(id);
+    return{
+
+      success: true,
+      message: 'News successfully removed'
+    }
+  } catch(err) {
+    return{
+
+      success: false,
+      message: 'Failed to remove news'
     }
   }
 }
