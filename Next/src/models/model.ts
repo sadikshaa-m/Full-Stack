@@ -47,5 +47,6 @@
 export interface NewsModel {
     title: string,
     description: string,
-    image: string
+    image: string,
+    id?:string
 }

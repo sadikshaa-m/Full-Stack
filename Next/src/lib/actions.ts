@@ -7,6 +7,7 @@ import { News } from "@/models/News";
 import { connectDb } from "./db";
 import { NewsModel } from "@/models/model";
 import { revalidatePath } from "next/cache";
+import { success } from "zod";
 
 // import { Employee } from "@/models/model";
 // import axios from "axios";
@@ -31,7 +32,7 @@ import { revalidatePath } from "next/cache";
 // export async function getEmployees(): Promise<Employee[]> {
 //     try{
 //         const response = await axios.get('https://68c8e428ceef5a150f629401.mockapi.io/api/new/employees');
-       
+
 //         return response.data;
 //     } catch (err) {
 //         console.log(err);
@@ -88,36 +89,19 @@ import { revalidatePath } from "next/cache";
 //   }
 // }
 
-export async function getNews() {
-  await connectDb();
-  try{
-    const news = await News.find({});
-    return{
-      success: true,
-      data: news
-    }
-
-  }catch (err){
-    return {
-      success: false,
-      message: 'failed to get news'
-    }
-  }
-  
-}
 
 
-
+//create
 export async function addNews(news: NewsModel) {
   await connectDb();
-  try{
+  try {
     await News.create(news);
     revalidatePath('/');
     return {
       success: true,
       message: 'News successfully added'
     }
-  } catch (err: any){
+  } catch (err: any) {
     return {
       success: false,
       message: err.message
@@ -126,21 +110,75 @@ export async function addNews(news: NewsModel) {
 }
 
 
+//read
+export async function getNews() {
+  await connectDb();
+  try {
+    const news = await News.find({});
+    return {
+      success: true,
+      data: news
+    }
+
+  } catch (err) {
+    return {
+      success: false,
+      message: 'failed to get news'
+    }
+  }
+
+}
+
+export async function getNewsById(id: string) {
+  await connectDb();
+  try {
+    const news = await News.findById(id);
+    return {
+      success: true,
+      data: news
+    }
+  } catch (err: any) {
+    return {
+      success: false,
+      message: err.message
+    }
+  }
+}
+
+//update
+export async function updateNews(id: string, news: NewsModel) {
+  await connectDb();
+  try {
+    await News.findByIdAndUpdate(id, news);
+    revalidatePath('/');
+    return {
+      success: true,
+      message: 'News updated successfully'
+    }
+  } catch (err: any) {
+    return {
+      success: false,
+      message: err.message
+    }
+  }
+}
+
+
+
+//delete
 export async function removeNews(id: string) {
   await connectDb();
-  try{
+  try {
     await News.findByIdAndDelete(id);
     revalidatePath('/');
-    return{
-
+    return {
       success: true,
       message: 'News successfully removed'
     }
-  } catch(err) {
-    return{
-
+  } catch (err: any) {
+    return {
       success: false,
-      message: 'Failed to remove news'
+      message: err.message
     }
   }
 }
