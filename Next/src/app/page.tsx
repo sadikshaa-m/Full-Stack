@@ -89,13 +89,14 @@ export default async function Home() {
 
   const news: NewsModel[] = res.data ?? []
   return (
-    <div className="border p-2">
+    <div className="border p-2 rounded-2xl">
       {
         news.map((news: any) => {
           return (
-            <div key={news.id} >
-              <h2>{news.title}</h2>
+            <div key={news._id.toString()} className="m-2">
+              <h2 className="text-lg font-bold">{news.title}</h2>
               <p>{news.description}</p>
+              
               <div className="justify-end flex gap-2">
                 <Link href={`/news/${news._id}`}>
                 <Button><Edit2Icon/></Button>

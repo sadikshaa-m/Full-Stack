@@ -29,6 +29,7 @@ export default function UpdateNews({news}: {news: NewsModel}) {
                 const res = await updateNews(news.id ?? '' , val);
                 if(res.success){
                     toast.success(res.message);
+                    router.back();
                 } else {
                     toast.error(res.message);
                 }

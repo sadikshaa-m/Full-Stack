@@ -13,7 +13,7 @@ export default async function NewsById({params}: {params: Promise<NewsProps>}) {
     <div>
       <UpdateNews news={{
         title:data.title,
-        id: data._is.toString(),
+        id: data._id.toString(),
         description: data.description,
         image: data.image
       }}
