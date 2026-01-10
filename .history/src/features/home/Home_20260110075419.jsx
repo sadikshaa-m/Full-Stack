@@ -78,30 +78,15 @@ export default function Home() {
 
 <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 mt-6 items-start'>
   {data.products && data.products.length > 0 ? (
-    <>
-      {data.products.map((product) => (
-        <ProductCard key={product._id} product={product} />
-      ))}
-      <div className='flex gap-3 mt-4 justify-center items-center col-span-2 lg:col-span-4'>
-        <Button disabled={Number(queryPage) === 1} onClick={() => setParams({ page: Number(queryPage) - 1 })}>
-          Prev
-        </Button>
-        <h4>{params.get('page') ?? 1}</h4>
-        <Button disabled={data.totalPages === Number(queryPage)} onClick={() => setParams({ page: Number(queryPage) + 1 })}>
-          Next
-        </Button>
-      </div>
-    </>
-  )  : (
-  <h2 className="col-span-2 lg:col-span-4 text-center text-gray-600 font-medium mt-6">
-    No products available
-  </h2>
-)}
+    data.products.map((product) => (
+      <ProductCard key={product._id} product={product} />
+    ))
+  ) : (
+    <h2 className="col-span-2 lg:col-span-4 text-center text-gray-600 font-medium mt-6">
+      No products found.
+    </h2>
+  )}
 </div>
 
-
-
-
-    </div>
   )
 }

@@ -60,7 +60,7 @@ export default function DropDownProfile({user}) {
                 switch (item.property) {
                   case 'Sign Out':
                     dispatch(removeUser());
-                    nav('/login');
+                    nav('/Login');
                     break;
                   
                   case 'Cart':
