@@ -1,0 +1,133 @@
+------------INTERVIEW QUESTION------------------
+//authorization and authentication
+//encrypted and encoded, hashing
+//jwt
+//tokens are sent in headers
+// one document limit in mongodb - 16MB --16 MB lagyo bhane chuttai model banaidini --1 to many ma chutai model , 1 to ton ma chutai model..  many to many ma ni chuta chutai model banauni
+//Referencing vs Embedding
+
+//array- []
+//object- {}
+------------------------------------------------//
+
+database--> data store bhayera bascha-- database bata data fetch garni frontend ma
+
+database bata frontend ma data dekhauna API act as a server.
+
+API- Application programming interface --(You can think of it as a common language that lets different software systems communicate smoothly, without needing to know how the other is built.)
+
+RTK Query--> Api ko end point k ho- body ma kei cha ki chaina- query ma k pathauni... 
+
+
+modules--> library/package --codes are already defined in modules-- they are a file that contains code that can be reused in other parts of our program.
+
+
+thread--> smallest unit of process -- helps in handling multiple requests simultaneously..
+Node.js usually use one main thread(has hidden workers behind the scenes) node.js runs your javascript code.
+
+Server:- {kitchen of the restaurant}server is a computer that provides services or data tp other computers. when a client ask for informations it sends it. server stores or processes information..
+
+to run or create a server-- express.js framework is used
+
+node modules-- 3 types;
+1) Built-in modules
+2) Local modules
+3) Third-party modules
+
+
+//File System- asynchronous hunuparcha -- file system module is used to work with files and folders in Node.js
+1) fs.readfile  => reads file
+2) fs.writefile => writes (create)
+3) fs.appendfile => updates a file
+4) fs.unlink => deletes a file
+5) fs.existsSync => checks if the file exists or not
+6) fs.mkdir => make a folder
+7) fs.rmdir => remove a folder
+8) fs.rename('./oldpath', './newpath') =>rename a file or folder or you can also move a file to diff folder using rename 
+
+
+listen kina garni ta? => server ma kei request ayo bhane listen garnu parcha tyo anusar ko response dina -- listen garda euta port number pani dinu parni huncha
+
+
+Status:- 
+200=> OK - Success
+201=> Created
+400=> Bad request
+401=> Unauthorized
+405 => Method not allowed 
+500=> intenal server error
+429=> too many request
+409=> duplicate
+
+Mongoose is a Node.js library... it helps to connect to MongoDB
+
+
+Middleware:- request ra response ko bicha ma auni function -- middlewaee checks incoming data
+middleware ko lagi app.use() method use garcha
+
+MVC pattern - Model, View, Controller Pattern
+
+Controller -  le response dina help garcha
+
+View - react.js ma huncha
+
+Model (IMP)- planning data ko -- eg: product ma title rakhni ki description rakhni ki tyo sabai decide garera product model banuni -- model is created using mongoose and it defines what our data looks like. so model is a MongoDB collection.
+ model banauda schema define garnu parcha-- schema ma data ko structure define garnu parcha jastai data ma k k halnu parcha
+schema bata model bancha ani tya bata interact garera add, delete,get, update etc garni
+
+
+
+
+Params => this parameter comes after colon(:) but is seperated by slash(/) ..... it is a part of URL.-- params means parameters-- eg: we have a url http://localhost:5000/products/123
+here params is 123
+
+
+Query => this parameter comes after ? in the URL
+
+
+
+frontend, server, database
+email, password pathauni server ma jancha server le check garcha datbaase ma cha ki chaina cha bhane token banayera dini , token bata valid user ho ki haina check garni--- token means a small piece of data used for authentication or access
+token response ma pauni ho(jwt token is being used here)
+token paayesi local storage ma save garni
+
+
+
+----------------------------------------------MONGODB-------------------------------------------------------------------
+//for adding moongose / mongodb in node.js
+//mongodb is a database which stores data.
+//moongose is a node.js library-- which is used to work with MongoDB more easily. makes the code cleaner and safer and helps in creating schemas, models, validation
+
+
+
+step-1   npm init-y   this creates a package.json file to manage project dependencies
+(this npm init-y is used when starting a new node  or javascript project)
+step-2   install mongoose   npm install mongoose
+step-3   connect to MongoDB  in your main applcation(index.js) ma import mongoose and establish a connection to your MongoDB database----for this you gotta install mongoDb atlas app and tya add to cluster ma gayera afno mongodb connection string thapauni
+
+step-4   define mongoose schemas (schemas mean structure)-- models folder create garera schema define garni 
+const productSchema = new mooongose.schema({
+title: {
+    type, required, enum, default, unique
+}
+},{ timestamps: true });
+const Product = mongoose.model('Product', productSchema);
+export default Product;
+
+step-5   perform CRUD(create, read, update, delete) operations -- use mongoose models in application logic like in routes, controllers, middleware to interact with MongoDB database
+
+
+----------------------------------------------------------------------------------------------------------------------
+
+//data modeling garda relationship is important-----------------------------------------------------------------------
+----------Relationship with data:- 1) 1 to 1   2) 1 to few   3) 1 to many   4) 1 to ton   5)many to many
+Referenced - normalized -- chuttai banauni parent ma child ko reference matra halni like id.. -- esma diff api bata info aucha (diff queries) 1 to many, 1 to ton, many to many ma referencing
+-child referencing -- child lai parent ma attach garni array ma(movie ma actors haru ko id attach)(! to few)
+-parent referencing -- child ma chai parent ko id halni (1 to many, 1 to ton)
+-two-way referencing -- parent ma pani child ko child ma pani parent ko (many to many ma)
+
+Embedded - denormalized -- eutai ma banauni for rg: movie ko case ma actor haru eutai ma halni actor kei document ma -- eutai api bata sabai info aucha (one query) 1 to few, 1 to many(Depends) ma embedding -- data dherai ccha tara change hudaina bhane pani embed
+---------------------------------------------------------------------------------------------------------
+
+------------Mongoose Operators----------------
+//OPERATORS -- comparision, logical
