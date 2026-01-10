@@ -3,8 +3,6 @@ import Order from "../models/Orders.js";
 
 export const getorder = async(req, res) => {
   const {id} = req.params;
-  console.log("ID RECEIVED:", id);
-
   try{
     const order = await Order.findById(id).populate([
       {
@@ -78,24 +76,26 @@ export const getOrders = async (req, res) => {
 
 
 
+
 export const createOrder = async (req, res) => {
-  const { totalAmount, products } = req.body ?? {};
-  try {
+    const { totalAmount, products } = req.body ?? {};
+    try {
+        await Order.create({
+            totalAmount,
+            userId: req.userId,
+            products
+        });
+        return res.status(201).json({
+            status: 'success',
+            message: 'order created successfully'
+        })
 
-    await Order.create({
-      totalAmount,
-      userId: req.userId,
-      products
-    });
-    return res.status(201).json({
-      status: 'success',
-      message: 'order created successfully'
-    });
-  } catch (err) {
-    return res.status(500).json({
-      status: 'error',
-      message: err.message
-    })
-  }
+    } catch (err) {
+        console.log('Error:', err.message);
+        return res.status(500).json({
+            status: 'Error',
+            message: err.message
+        })
 
+    }
 }

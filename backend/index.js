@@ -212,9 +212,7 @@ dotenv.config({
 const app = express();
 const port = 5000;
 
-app.use(cors({
-  origin: ['https://full-stack-dr7e.vercel.app', 'http://localhost:5173']
-}));
+app.use(cors());
 app.use(express.json());
 app.use('/uploads',express.static('uploads'));
 app.use(fileUpload({
